@@ -13,5 +13,5 @@ export const usePosts = (filters = {}) =>
   useQuery({
     queryKey: postKeys.list(filters),
     queryFn: () => listPosts(filters),
-    select: (response) => response.items.map(toPostView),
+    select: (response) => response.items.map((post) => toPostView(post)),
   })
